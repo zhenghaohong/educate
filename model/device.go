@@ -31,15 +31,7 @@ type JumpConfigController struct {
 // 	  "radar1" : 0
 // 	}
 //   }
-type JumpReceive struct {
-	Response
-	Data struct {
-		// State  int `json:"state"`
-		Laser1 int `json:"laser1"`
-		Laser2 int `json:"laser2"`
-		Radar1 int `json:"radar1"`
-	}
-}
+
 
 // {
 // 	"mac":"004D098030C4", //设备mac

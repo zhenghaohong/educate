@@ -12,9 +12,11 @@ type WebSocketOrder struct {
 	Mac  string `json:"mac"`
 	Type int    `json:"type"`
 	Data struct {
-		Laser1 int `json:"laser1"`
-		Laser2 int `json:"laser2"`
+		// Laser1 int `json:"laser1"`
+		// Laser2 int `json:"laser2"`
+		StudentNum string `json:"studentNum"`
 	}
+	// Data interface{} `json:"data"`
 }
 
 type WebSocketRespone struct {

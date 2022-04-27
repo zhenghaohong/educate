@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gomodule/redigo/redis"
+	"phyFit/mqtt/config"
 )
 
 var redisPool *redis.Pool
@@ -19,11 +20,13 @@ func RedisPollInit() *redis.Pool {
 		MaxActive: 0,
 		Wait:      true,
 		Dial: func() (redis.Conn, error) {
-			c, err := redis.Dial("tcp", "127.0.0.1:6379")
+			// c, err := redis.Dial("tcp", "127.0.0.1:6379")
+			c, err := redis.Dial("tcp", config.RedisConfig.Addr)
 			if err != nil {
 				return nil, err
 			}
-			if _, err = c.Do("AUTH", "123456"); err != nil {
+			// if _, err = c.Do("AUTH", "123456"); err != nil {
+			if _, err = c.Do("AUTH", config.RedisConfig.Password); err != nil {
 				c.Close()
 				fmt.Println("redis password failed", err)
 				return c, err
